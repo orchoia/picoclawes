@@ -12,6 +12,7 @@ type Language string
 const (
 	LanguageEnglish Language = "en"
 	LanguageChinese Language = "zh"
+	LanguageSpanish  Language = "es"
 )
 
 // current language (default: English)
@@ -77,6 +78,23 @@ var translations = map[Language]map[TranslationKey]string{
 		Exiting:            "正在退出 PicoClaw...",
 		DocUrl:             "https://docs.picoclaw.io/zh-Hans/docs/",
 	},
+	LanguageSpanish: {
+		AppTooltip:         "%s - Consola Web",
+		MenuOpen:           "Abrir Consola",
+		MenuOpenTooltip:    "Abrir consola de PicoClaw en el navegador",
+		MenuAbout:          "Acerca de",
+		MenuAboutTooltip:   "Acerca de PicoClaw",
+		MenuVersion:        "Versión: %s",
+		MenuVersionTooltip: "Número de versión actual",
+		MenuGitHub:         "GitHub",
+		MenuDocs:           "Documentación",
+		MenuRestart:        "Reiniciar Servicio",
+		MenuRestartTooltip: "Reiniciar el servicio Gateway",
+		MenuQuit:           "Salir",
+		MenuQuitTooltip:    "Salir de PicoClaw",
+		Exiting:            "Saliendo de PicoClaw...",
+		DocUrl:             "https://docs.picoclaw.io/es/docs/",
+	},
 }
 
 // SetLanguage sets the current language
@@ -91,6 +109,8 @@ func SetLanguage(lang string) {
 
 	if lang == "zh" || lang == "zh-cn" || lang == "chinese" {
 		currentLang = LanguageChinese
+	} else if lang == "es" || lang == "spanish" {
+		currentLang = LanguageSpanish
 	} else {
 		currentLang = LanguageEnglish
 	}
